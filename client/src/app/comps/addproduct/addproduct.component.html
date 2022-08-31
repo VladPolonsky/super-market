@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Product</h1>
+                    <h6>Please enter product info</h6>
+                </div>
+                <form [formGroup]="productForm" (ngSubmit)="addproduct()">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Product name <br></label>
+                        <input formControlName="name"type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="exam:Avocado">
+                       
+                      </div>
+                      <div class="mb-3">
+                        <label for="productCategory" class="form-label">Product Category <br></label>
+                        <input formControlName="category" type="category" class="form-control" id="category" placeholder="Meat=1,Freezer=2,Snacks=3,Bread=4,Fruits=5">
+                      </div>
+                      <div class="mb-3">
+                        <label for="productPrice" class="form-label">Product Price <br></label>
+                        <input formControlName="price" type="price" class="form-control" id="price" placeholder="price in NIS">
+                      </div>
+                      <div class="mb-3">
+                        <label for="productImage" class="form-label">Product Image <br></label>
+                        <input formControlName="img" type="pictur" class="form-control" id="img" placeholder="image url">
+                      </div>
+                     
+                      
+                      <button type="login" class="btn btn-warning">Add product</button><br>
+                      
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

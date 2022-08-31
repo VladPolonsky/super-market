@@ -1,0 +1,12 @@
+.card {
+    text-align: center;
+    border:none;
+    width:500px;
+    padding:50px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background: hsla(205, 46%, 30%, 1);
+    background: linear-gradient(90deg,rgb(117, 189, 240)0%,rgb(141, 191, 238)100%);
+}

@@ -1,0 +1,44 @@
+
+.card-top{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgb(106, 200, 243);
+    background-clip: border-box;
+    border: 1px solid rgb(253, 253, 253);
+    border-radius: .25rem;
+    
+}
+.item img{
+    width: 200px;
+    height: 100px;
+    border:1px solid white;
+}
+.item{
+    
+    margin:10px 10px 0px;
+    text-align: center;
+}
+h6{
+    color: white;
+    border: 1px solid rgb(247, 247, 247);
+}
+.card{
+    text-align: center;
+    padding :20px;
+    margin:50px
+}
+.card img{
+    margin: auto;
+    width:200px;
+    height: 200px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+    
+}
+.card img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}

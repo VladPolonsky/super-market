@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Register</h1>
+                    
+                </div>
+                <form [formGroup]="registerForm" (ngSubmit)="register()">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Id Number<br></label>
+                        <input formControlName="id" type="idnumber" class="form-control" id="id" aria-describedby="emailHelp">
+                       
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email-username<br></label>
+                        <input formControlName="username" type="username" class="form-control" id="username">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password <br></label>
+                        <input formControlName="password" type="password" class="form-control" id="email">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">City<br></label>
+                        <input formControlName="city" type="city" class="form-control" id="password">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Street<br></label>
+                        <input formControlName="street"  type="street" class="form-control" id="password">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Name<br></label>
+                        <input formControlName="name" type="name" class="form-control" id="street">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Last Name <br></label>
+                        <input formControlName="lname" type="lname" class="form-control" id="city">
+                      </div>
+
+                      <div *ngIf="false">Content to render when condition is true.</div>
+                      
+                      <button type="login" class="btn btn-primary">Register</button><br>
+                      <a style='color: aqua;margin-top: 10px;'routerLink="/users/login">Already Registered? Click here to Login</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

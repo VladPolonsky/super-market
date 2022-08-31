@@ -1,0 +1,62 @@
+<div class="card-top countainer-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('1')"> <img
+                    src="https://www.kosher.com/files/lifestyle%20images/shutterstock_1043899834banner.jpg"></a>
+            <h6>Meat and Fish</h6>
+        </div>
+        <div class="item">
+            <a (click)="filter('2')">
+                <img src="https://learn.compactappliance.com/wp-content/uploads/2013/08/organized-freezer.jpg"
+                    alt="freezer">
+                <h6>Freezer</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('3')">
+                <img src="https://www.seriouseats.com/thmb/NO5Oiq5YyW4YE_yGB-SVzZD73do=/1500x844/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2014__05__20140509-mexican-snacks-primary-778f865d210f4712bb67cd4226d01fb3.jpg"
+                    alt="snacks">
+                <h6>Snacks</h6>
+            </a>
+        </div>
+        <div class="item"><a (click)="filter('4')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Korb_mit_Br%C3%B6tchen.JPG/1200px-Korb_mit_Br%C3%B6tchen.JPG"
+                    alt="Bread">
+                <h6>Bread</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('5')">
+                <img src="https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature.jpg?sfvrsn=64942d53_4"
+                    alt="Fruits">
+                <h6>Fruits</h6>
+            </a>
+        </div>
+        <div class="addprod">
+            <a >
+                <button *ngIf="isAdmin" style="position: relative; top: 50px;left: 50px;"class="btn btn-warning"  routerLink="/addproduct">Add product + </button>
+
+            </a>
+            <div class="logout">
+                <a >
+                    <button routerLink="/users/login" class="btn btn-danger" style="position:relative; top: 30px; left:300px">Logout</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'name'">
+
+            <div class="card col-md-3">
+                <img src="{{item.img}}" alt="">
+                <h5>{{item.name}}</h5>
+                <p><strong>Price: {{item.price | currency :"ILS"}}</strong></p>
+                <button class="btn btn-info" (click)=addtocart(item)>Add to cart</button>
+
+            </div>
+        </ng-container>
+    </div>
+</div>

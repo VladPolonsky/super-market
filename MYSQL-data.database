@@ -1,0 +1,115 @@
+CREATE DATABASE supermarket;
+
+USE supermarket;
+
+CREATE TABLE users(
+name VARCHAR(50),
+lname VARCHAR(50),
+username VARCHAR(50),
+id INT(9),
+password VARCHAR(50),
+street VARCHAR(50),
+city VARCHAR(50),
+role INT,
+PRIMARY KEY(id)
+
+);
+ 
+CREATE TABLE category(
+id int auto_increment,
+name varchar(50),
+PRIMARY KEY(id)
+);
+
+CREATE TABLE product(
+id int auto_increment,
+name varchar(50),
+category int,
+price int(3),
+img VARCHAR(150),
+PRIMARY KEY (id),
+foreign key(category) references category(id)
+);
+
+CREATE TABLE shoppingCart(
+id int auto_increment,
+user_id int,
+completed boolean,
+date datetime default now(),
+foreign key(user_id) references users(id),
+PRIMARY KEY(id)
+);
+
+CREATE TABLE cartItem(
+id int auto_increment,
+product_id int,
+shoppingCart_id int,
+qt int,
+end_price int,
+foreign key(product_id) references product(id),
+foreign key(shoppingCart_id) references shoppingCart(id),
+PRIMARY KEY(id)
+);
+
+CREATE TABLE orders(
+id int auto_increment,
+user_id_order int,
+shoppingCart_id int,
+end_price int,
+city varchar(50),
+street varchar(50),
+pick_date VARCHAR(20),
+date datetime default now(),
+dig int(4),
+PRIMARY KEY(id),
+foreign key(user_id_order) references users(id)
+);
+
+INSERT INTO users(name,lname,username,id,password,street,city,role)
+VALUES ("dan","harari","danharari@gmail.com",322344543,"123","Borohov","Tel-aviv",0),
+("Ashton","Kuch","AshtonKu@gmail.com",323341548,"123","TelHai","Raanana",0),
+("Angelina","Jol","AngyJo@gmail.com",111144543,"456","Geula","Herzelia",0),
+("admin","admin","admin@gmail.com",111111111,"admin",null,null,1);
+
+INSERT INTO category(name)
+VALUES("Meat & Fish"),("Freezer"),("Snacks"),("Bread"),("Fruits");
+
+INSERT INTO product(name,category,price,img)
+VALUES("sausages",1,6,"https://www.collinsdictionary.com/images/full/sausage_410446060.jpg"),
+("fish",1,12,"https://p0.pikist.com/photos/406/808/fish-ice-nature-sale-sea-water-fishermen-supermarket-fishing.jpg"),
+("steak",1,25,"https://embed.widencdn.net/img/beef/ng96sbyljl/800x600px/Ribeye%20Steak_Lip-on.psd?keep=c&u=7fueml"),
+("salmon",1,18,"https://solidstarts.com/wp-content/uploads/Salmon_Sockeye_edited-scaled.jpg"),
+("Fish wafers",1,2,"https://5.imimg.com/data5/DQ/VA/MY-2352496/fish-wafers-500x500.jpg"),
+("Peanut snack",3,5,"https://cdn.shopify.com/s/files/1/0202/1858/products/Bamba_-_Osem_Bamba_Snacks_Peanut_Flavored_1-Ounce_Packages.jpg?v=1496939972"),
+("Pringles",3,9,"https://grocerybazaar.pk/wp-content/uploads/2020/04/1100905-1.jpg"),
+("Pita",4,10,"https://m.media-amazon.com/images/I/51moInr9j+L._SX425_PIbundle-2,TopRight,0,0_AA425SH20_.jpg"),
+("Popcorn",3,12,"https://cdn-prod.medicalnewstoday.com/content/images/articles/324/324763/bowl-of-healthy-popcorn.jpg"),
+("Prezel",4,9,"https://t3.ftcdn.net/jpg/00/07/11/32/360_F_7113290_YqmCjJCFV9yyJBuWhvF9Doberipu155P.jpg"),
+("Doritos",3,5,"https://www.yourspanishshop.es/data/productos/doritos-tex-mex-600x568_3d_new.png"),
+("Frozen fruits",2,14,"https://www.superhealthykids.com/wp-content/uploads/2020/09/Frozen-Fruit-in-Bagssml.jpg"),
+("Frozen potato bourekas",2,12,"https://storage.googleapis.com/sp-public/items/large/225260.jpg?v=3"),
+("frozen yogurt",2,10,"https://images.heb.com/is/image/HEBGrocery/001456724?fit=constrain,1&wid=800&hei=800&fmt=jpg&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0"),
+("frozen beens",2,7,"https://cdnprod.mafretailproxy.com/sys-master-root/h5a/h75/13956091445278/1435231_main.jpg_480Wx480H"),
+("pizza",2,20,"https://hips.hearstapps.com/del.h-cdn.co/assets/17/21/480x411/gallery-1495726985-15043063370-7b843869d3-z.jpg?resize=480:*"),
+("icecream",2,15,"https://m.media-amazon.com/images/I/71wgzBOTBJL._AC_SL1500_.jpg"),
+("Pineapple",5,30,"https://static.libertyprim.com/files/familles/ananas-large.jpg?1569271716"),
+("Peach",5,12,"https://static.libertyprim.com/files/familles/peche-large.jpg?1574630286"),
+("Chips",3,5,"https://i5.walmartimages.com/asr/15b0a328-0403-4e27-b256-698e69675801.4479d277258b0bb9993670ed400a98d0.jpeg"),
+("snickers",3,3,"https://confidiet.com/wp-content/uploads/2021/10/Snickers-Chocolate-Bar-45g.jpg"),
+("Bread",4,2,"https://upload.wikimedia.org/wikipedia/commons/3/33/Fresh_made_bread_05.jpg"),
+("Apples",5,3,"https://i5.walmartimages.com/asr/32451a10-0563-426a-9a16-a8865b2c3774_3.b3be01fcc4c956f51fe3890589897d31.jpeg"),
+("Pear",5,8,"https://rainierfruit.com/wp-content/uploads/2021/10/Rainier-Fruit-Pears.png"),
+("Baguette",4,7,"https://www.cobsbread.com/drive/uploads/2019/11/cobs-product-french-baguette-3-1280x720.png"),
+("Banana",5,1,"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/2324px-Banana-Single.jpg"),
+("Mango",5,2,"https://befreshcorp.net/wp-content/uploads/2017/07/product-packshot-mango.jpg");
+ INSERT INTO shoppingCart(user_id,completed)
+ VALUES(322344543,true),(323341548,false),(111144543,true);
+ 
+ INSERT INTO cartItem(shoppingCart_id,product_id,qt,end_price)
+ VALUES(1,1,4,24),(1,1,5,30),(1,2,4,8),(2,3,4,33),(3,4,5,26);
+ 
+ INSERT INTO orders(user_id_order,shoppingCart_id,end_price,city,street,pick_date,dig)
+VALUES(322344543,2,400,"Raanana","Borohov","02/05/2022",3212),(322344543,1,250,"Raanana","Borohov","02/05/2022",3212),(323341548,3,333,"Tel-Aviv","TelHai","04/05/2022",4444);
+ 
+
+
